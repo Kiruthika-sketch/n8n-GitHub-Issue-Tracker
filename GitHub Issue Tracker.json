@@ -1,0 +1,71 @@
+{
+  "name": "GitHub Issue Tracker",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "2e155594-2d91-484e-a99c-566ebc56e394",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "86a2dd05-6f24-4744-af36-1c0407a7bb1d",
+      "name": "Webhook",
+      "webhookId": "2e155594-2d91-484e-a99c-566ebc56e394"
+    },
+    {
+      "parameters": {
+        "chatId": "1173453184",
+        "text": "=🚨 New GitHub Issue Alert!  📁 Repository: {{ $json.body.repository.name }} 🔢 Issue No: #{{ $json.body.issue.number }} 📝 Title: {{ $json.body.issue.title }} 👤 Opened by: {{ $json.body.issue.user.login }} 🔗 Link: {{ $json.body.issue.html_url }}  ⏰ Check it out now!",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "1a91c9ee-9ad6-4a4d-a01d-0162de4ef3f1",
+      "name": "Send a text message",
+      "webhookId": "91dc6848-399d-4bb1-9633-a5d62026724d",
+      "credentials": {
+        "telegramApi": {
+          "id": "kxLhm0hlXuus73uY",
+          "name": "Telegram account 3"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "773e3492-d6c6-42a8-9ad6-627a63c98938",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "9b1b5b7c87d95422c4ea88be15184f5cc565e3dfefdebdf335031237c4a0bedc"
+  },
+  "nodeGroups": [],
+  "id": "wGeH2sP5EkuWnJtU",
+  "tags": []
+}
